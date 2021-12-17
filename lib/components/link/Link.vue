@@ -15,7 +15,7 @@ const props = defineProps({
   type: {
     type: S,
     default: 'default',
-    validator: v => oneOf(['primary', ...statusTypes], v)
+    validator: v => oneOf(['default', 'primary', ...statusTypes], v)
   },
   underline: BTrue,
   disabled: B,
