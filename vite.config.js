@@ -9,7 +9,7 @@ export default defineConfig({
   build: process.env.TARGET === 'lib'
     ? {
       lib: {
-        entry: path.resolve(__dirname, 'src/lib/index.js'),
+        entry: path.resolve(__dirname, 'lib/index.js'),
         name: 'XView',
         fileName: format => `xview.${format}.js`
       },

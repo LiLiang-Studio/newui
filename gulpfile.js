@@ -4,7 +4,7 @@ const autoprefixer = require('gulp-autoprefixer')
 const cssmin = require('gulp-cssmin')
 
 const compile = () =>
-  src('./src/lib/theme/*.scss')
+  src('./lib/theme/*.scss')
     .pipe(sass.sync())
     .pipe(autoprefixer({
       cascade: false
@@ -13,7 +13,7 @@ const compile = () =>
     .pipe(dest('./dist/theme'))
 
 const copyFont = () =>
-  src('./src/theme/fonts/**')
+  src('./lib/theme/fonts/**')
     .pipe(cssmin())
     .pipe(dest('./dist/theme/fonts'))
 
