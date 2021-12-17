@@ -1,17 +1,36 @@
 {
   "name": "newui",
   "version": "0.0.0",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/xview.umd.js",
+  "module": "./dist/xview.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/xview.es.js",
+      "require": "./dist/xview.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:theme": "gulp",
+    "build:lib": "cross-env TARGET=lib npm run build",
+    "dist:lib": "npm run build:lib && npm run build:theme"
   },
   "dependencies": {
     "vue": "^3.2.25"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.0",
-    "sass": "^1.45.0",
+    "cross-env": "^7.0.3",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-sass": "^4.1.0",
+    "sass": "1.32.8",
     "vite": "^2.7.2"
   }
 }

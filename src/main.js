@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import uilib from './lib'
-import './lib/themes/index.scss'
+import './lib/theme/index.scss'
 import App from './App.vue'
 
 const app = createApp(App)
