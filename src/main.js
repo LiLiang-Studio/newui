@@ -1,4 +1,8 @@
 import { createApp } from 'vue'
+import uilib from './lib'
+import './lib/themes/index.scss'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+app.use(uilib)
+app.mount('#app')
