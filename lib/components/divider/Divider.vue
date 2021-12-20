@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes">
+  <div :class="[cls, direction && `${cls}_${direction}`]">
     <div v-if="direction !== 'vertical'" :class="[`${cls}_text`, contentPosition]">
       <slot />
     </div>
@@ -7,10 +7,9 @@
 </template>
 
 <script setup>
-import { computed } from '@vue/reactivity'
 import { oneOf } from '../../types'
 
-const props = defineProps({
+defineProps({
   direction: {
     default: 'horizontal',
     validator: v => oneOf(['horizontal', 'vertical'], v)
@@ -23,7 +22,4 @@ const props = defineProps({
 
 const cls = 'x-divider'
 
-const classes = computed(() => {
-  return [cls, props.direction && `${cls}_${props.direction}`]
-})
 </script>
