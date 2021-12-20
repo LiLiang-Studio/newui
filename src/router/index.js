@@ -9,6 +9,14 @@ export const routes = [
   {
     path: 'alert',
     component: () => import('../views/Alert.vue')
+  },
+  {
+    path: 'layout',
+    component: () => import('../views/Layout.vue')
+  },
+  {
+    path: 'avatar',
+    component: () => import('../views/Avatar.vue')
   }
 ]
 
