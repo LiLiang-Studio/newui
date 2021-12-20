@@ -1,0 +1,1 @@
+.page-home{height:100vh;display:flex;flex-direction:column}.page-home .page-nav{display:flex;flex-wrap:wrap;padding:10px 16px;border-bottom:1px solid #f2f2f2}.page-home .page-nav li{list-style:none;margin-right:10px}.page-home .page-nav li .router-link-active{color:#409eff}.page-home .page-main{padding:16px;flex:1;overflow-y:auto}
