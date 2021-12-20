@@ -17,6 +17,10 @@ export const routes = [
   {
     path: 'avatar',
     component: () => import('../views/Avatar.vue')
+  },
+  {
+    path: 'divider',
+    component: () => import('../views/Divider.vue')
   }
 ]
 
