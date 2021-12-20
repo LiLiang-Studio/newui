@@ -33,11 +33,11 @@ jobs:
       - name: Upload Artifacts 🔺 # The project is then uploaded as an artifact named 'site'.
         uses: actions/upload-artifact@v1
         with:
-          name: docs
-          path: build
+          name: site
+          path: docs
 
   deploy:
-    needs: [build] # The second job must depend on the first one to complete before running, and uses ubuntu-latest instead of windows.
+    needs: [docs] # The second job must depend on the first one to complete before running, and uses ubuntu-latest instead of windows.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -46,7 +46,7 @@ jobs:
       - name: Download Artifacts 🔻 # The built project is downloaded into the 'site' folder.
         uses: actions/download-artifact@v1
         with:
-          name: docs
+          name: site
 
       # Runs a set of commands using the runners shell
       - name: Deploy 🚀
