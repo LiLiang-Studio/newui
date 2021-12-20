@@ -23,7 +23,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.1
 
       - name: Install & Build
         run: |
@@ -37,7 +37,7 @@ jobs:
           path: docs
 
   deploy:
-    needs: [docs] # The second job must depend on the first one to complete before running, and uses ubuntu-latest instead of windows.
+    needs: [build] # The second job must depend on the first one to complete before running, and uses ubuntu-latest instead of windows.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
