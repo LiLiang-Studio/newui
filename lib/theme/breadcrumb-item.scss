@@ -1,0 +1,24 @@
+@import './common/var.scss';
+
+.x-breadcrumb-item {
+  font-size: 14px;
+  &_inner {
+    color: $--color-text-regular;
+  }
+  &_separator {
+    margin: 0 8px;
+    color: $--color-text-placeholder;
+  }
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: $--color-text-primary;
+    transition: .2s;
+    &:hover {
+      color: $--color-primary;
+    }
+  }
+  &:last-child &_separator {
+    display: none;
+  }
+}

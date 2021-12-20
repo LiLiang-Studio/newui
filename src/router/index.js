@@ -21,6 +21,10 @@ export const routes = [
   {
     path: 'divider',
     component: () => import('../views/Divider.vue')
+  },
+  {
+    path: 'breadcrumb',
+    component: () => import('../views/Breadcrumb.vue')
   }
 ]
 
