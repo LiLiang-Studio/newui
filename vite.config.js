@@ -22,6 +22,6 @@ export default defineConfig({
         }
       }
     } : {
-      outDir: 'docs'
+      outDir: 'site'
     }
 })
