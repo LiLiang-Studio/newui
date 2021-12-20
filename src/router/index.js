@@ -1,35 +1,17 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
+const modules = import.meta.glob('../views/pages/*.vue')
+
 /** @type {import('vue-router').RouteRecordRaw[]} */
-export const routes = [
-  {
-    path: 'link',
-    component: () => import('../views/Link.vue')
-  },
-  {
-    path: 'alert',
-    component: () => import('../views/Alert.vue')
-  },
-  {
-    path: 'layout',
-    component: () => import('../views/Layout.vue')
-  },
-  {
-    path: 'avatar',
-    component: () => import('../views/Avatar.vue')
-  },
-  {
-    path: 'divider',
-    component: () => import('../views/Divider.vue')
-  },
-  {
-    path: 'breadcrumb',
-    component: () => import('../views/Breadcrumb.vue')
+export const routes = Object.keys(modules).map(k => {
+  return {
+    path: k.split('/').pop().split('.')[0].toLowerCase(),
+    component: modules[k]
   }
-]
+})
 
 export default createRouter({
-  history: createWebHashHistory(),
+  history: createWebHashHistory('/newui/'),
   routes: [
     {
       path: '/',
