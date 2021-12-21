@@ -1,0 +1,60 @@
+@import './common/var.scss';
+
+.x-button {
+  position: relative;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 0 20px;
+  margin-right: 10px;
+  height: $--size-default;
+  border: $--border-base;
+  transition: all .1s;
+  font-size: 14px;
+  border-radius: 4px;
+  color: $--color-text-regular;
+  background-color: #fff;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  &.is-circle {
+    padding: 0;
+    width: $--size-default;
+    border-radius: 50%;
+    justify-content: center;
+  }
+  &_medium {
+    height: $--size-medium;
+    &.is-circle {
+      width: $--size-medium;
+    }
+  }
+  &_small, &_mini {
+    font-size: 12px;
+    padding: 0 15px;
+  }
+  &_small {
+    height: $--size-small;
+    &.is-circle {
+      width: $--size-small;
+    }
+  }
+  &_mini {
+    height: $--size-mini;
+    &.is-circle {
+      width: $--size-mini;
+    }
+  }
+  &.is-round {
+    border-radius: $--size-default / 2;
+  }
+  &:hover, &:focus {
+    color: $--color-primary;
+    border-color: $--color-primary-light-7;
+    background-color: $--color-primary-light-9;
+  }
+  &:active {
+    border-color: $--color-primary;
+  }
+}
