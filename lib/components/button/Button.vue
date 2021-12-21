@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" :type="nativeType" :disabled="isDisabled || loading">
+  <button :class="classes" :type="nativeType" :disabled="isDisabled">
     <i v-if="loading" class="x-icon-loading"></i>
     <i v-else-if="icon" :class="icon"></i>
     <span v-if="$slots.default">
@@ -35,7 +35,7 @@ const props = defineProps({
 const xForm = inject('xForm', {})
 const xButtonGroup = inject('xButtonGroup', {})
 
-const isDisabled = computed(() => props.disabled || xForm.disabled)
+const isDisabled = computed(() => props.disabled || xForm.disabled || props.loading)
 
 const classes = computed(() => {
   const cls = 'x-button'
