@@ -1,0 +1,23 @@
+.x-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  text-align: center;
+  &_image {
+    width: 160px;
+    img {
+      display: block;
+      margin: auto;
+      max-width: 100%;
+    }
+  }
+  &_description, &_bottom {
+    margin-top: 20px;
+  }
+  &_description {
+    font-size: 14px;
+    color: $--color-text-regular;
+  }
+}

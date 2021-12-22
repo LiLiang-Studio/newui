@@ -1,0 +1,10 @@
+<template>
+  <div>
+    <el-empty description="描述文字"></el-empty>
+    <el-empty image="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"></el-empty>
+    <el-empty :image-size="200"></el-empty>
+    <el-empty>
+      <el-button type="primary">按钮</el-button>
+    </el-empty>
+  </div>
+</template>
