@@ -1,0 +1,36 @@
+@import './common/var.scss';
+
+.x-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 40px 30px;
+  font-size: 14px;
+  color: $--color-text-regular;
+  &_title {
+    margin-top: 20px;
+  }
+  &_subtitle {
+    margin-top: 10px;
+  }
+  &_extra {
+    margin-top: 30px;
+  }
+  i[class*=icon-] {
+    font-size: 64px;
+  }
+  .icon-success {
+    color: $--color-success;
+  }
+  .icon-warning {
+    color: $--color-warning;
+  }
+  .icon-info {
+    color: $--color-info;
+  }
+  .icon-error {
+    color: $--color-danger;
+  }
+}
