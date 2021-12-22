@@ -35,9 +35,9 @@ const cls = 'x-tag'
 const classes = computed(() => {
   return [
     cls,
-    props.type && `${cls}_${props.type}`,
+    `${cls}_${props.type || 'primary'}`,
     props.size && `${cls}_${props.size}`,
-    `${cls}_${props.effect}`,
+    `is-${props.effect}`,
     {
       'is-hit': props.hit,
       'is-fade': !props.disableTransitions
