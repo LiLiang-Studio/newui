@@ -107,3 +107,9 @@
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.x-button {
+  margin-right: 10px;
+}
+</style>
