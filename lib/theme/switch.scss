@@ -1,0 +1,64 @@
+@import './common/var.scss';
+
+.x-switch {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  &_label, &_core {
+    cursor: pointer;
+  }
+  &_label, &_core, &_ball {
+    transition: all .3s;
+  }
+  &_label {
+    color: $--color-text-regular;
+    &.is-left {
+      margin-right: 10px;
+    }
+    &.is-right {
+      margin-left: 10px;
+    }
+    &.is-active {
+      color: $--color-primary;
+    }
+  }
+  &_core {
+    user-select: none;
+    display: inline-flex;
+    vertical-align: middle;
+    height: 20px;
+    border-radius: 20px;
+    position: relative;
+    background-color: $--border-color-base;
+    &.is-active {
+      background-color: $--color-primary;
+    }
+  }
+  &_ball {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: $--color-text-secondary;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    i {
+      transform: scale(.8);
+    }
+  }
+  &_core.is-active &_ball {
+    color: $--color-primary;
+    left: calc(100% - 18px);
+  }
+  &.is-disabled {
+    opacity: .6;
+  }
+  &.is-disabled &_label, &.is-disabled &_core {
+    cursor: not-allowed;
+  }
+}
