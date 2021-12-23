@@ -12,8 +12,8 @@
 
 <script setup>
 import { computed } from 'vue'
-import { B, NSB, oneOf } from '../../types'
-import utils from './utils'
+import { B, NSB, oneOf, sizes } from '../../types'
+import helper from './helper'
 
 const props = defineProps({
   modelValue: NSB,
@@ -23,14 +23,14 @@ const props = defineProps({
   disabled: B,
   border: B,
   size: {
-    validator: v => oneOf(['medium', 'small', 'mini'], v)
+    validator: v => oneOf(sizes, v)
   },
   indeterminate: B
 })
 
 const emit = defineEmits(['change', 'update:modelValue'])
 
-const { xCheckboxGroup, isDisabled, boxSize } = utils(props)
+const { xCheckboxGroup, isDisabled, boxSize } = helper(props)
 
 const cls = 'x-checkbox'
 
@@ -41,7 +41,7 @@ const isChecked = computed(() => {
 const classes = computed(() => {
   return [
     cls,
-    boxSize.value && `${cls}_${boxSize.value}`,
+    boxSize.value && props.border && `${cls}_${boxSize.value}`,
     {
       'is-border': props.border,
       'is-checked': isChecked.value,

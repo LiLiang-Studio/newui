@@ -7,14 +7,14 @@
 <script setup>
 import { computed } from 'vue'
 import { B, NSB } from '../../types'
-import utils from './utils'
+import helper from './helper'
 
 const props = defineProps({
   label: NSB,
   disabled: B
 })
 
-const { boxSize, isDisabled, xCheckboxGroup } = utils(props)
+const { boxSize, isDisabled, xCheckboxGroup } = helper(props)
 
 const cls = 'x-checkbox-button'
 

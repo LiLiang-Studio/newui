@@ -6,11 +6,13 @@
 
 <script setup>
 import { provide, reactive } from 'vue'
-import { A, B, N, S } from '../../types'
+import { A, B, N, oneOf, S, sizes } from '../../types'
 
 const props = defineProps({
   modelValue: A,
-  size: {},
+  size: {
+    validator: v => oneOf(sizes, v)
+  },
   disabled: B,
   min: N,
   max: N,
