@@ -54,7 +54,7 @@
   &.is-checked {
     color: #fff;
     background-color: $--color-primary;
-    border-left-color: rgba(255, 255, 255, 0.5);
+    border-left-color: rgba(255, 255, 255, 0.5) !important;
     &.is-disabled {
       color: $--color-text-placeholder;
       border-color: $--border-color-lighter;

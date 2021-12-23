@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" :disabled="isDisabled" @click="onClick">
+  <button :class="classes" :style="styles" :disabled="isDisabled" @click="onClick">
     <slot />
   </button>
 </template>
@@ -29,6 +29,21 @@ const classes = computed(() => {
       'is-disabled': isDisabled.value
     }
   ]
+})
+
+const styles = computed(() => {
+  const obj = {}
+  if (isChecked.value && !isDisabled.value) {
+    const { textColor, fill } = xCheckboxGroup
+    if (textColor) {
+      obj.color = textColor
+    }
+    if (fill) {
+      obj.borderColor = fill
+      obj.backgroundColor = fill
+    }
+  }
+  return obj
 })
 
 function onClick () {

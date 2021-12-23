@@ -1,6 +1,6 @@
 <template>
-  <label :class="classes" :style="styles" @click="onClick">
-    <span tabindex="0" :class="[`${cls}_box`, { 'is-checked': isChecked || indeterminate }]" :style="boxStyles">
+  <label :class="classes" @click="onClick">
+    <span tabindex="0" :class="[`${cls}_box`, { 'is-checked': isChecked || indeterminate }]">
       <i v-if="indeterminate" class="x-icon-minus"></i>
       <i v-else-if="isChecked" class="x-icon-check"></i>
     </span>
@@ -48,32 +48,6 @@ const classes = computed(() => {
       'is-disabled':isDisabled.value
     }
   ]
-})
-
-const styles = computed(() => {
-  const obj = {}
-  if (isChecked.value && !isDisabled.value) {
-    const { textColor, fill } = xCheckboxGroup
-    if (textColor) {
-      obj.color = textColor
-    }
-    if (fill) {
-      obj.borderColor = fill
-    }
-  }
-  return obj
-})
-
-const boxStyles = computed(() => {
-  const obj = {}
-  if (isChecked.value && !isDisabled.value) {
-    const { fill } = xCheckboxGroup
-    if (fill) {
-      obj.borderColor = fill
-      obj.backgroundColor = fill
-    }
-  }
-  return obj
 })
 
 function onClick () {

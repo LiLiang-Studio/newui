@@ -27,7 +27,7 @@
       <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
     </el-checkbox-group><br><br>
     <div>
-      <el-checkbox-group v-model="checkboxGroup1">
+      <el-checkbox-group v-model="checkboxGroup1" fill="#f00">
         <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox-button>
       </el-checkbox-group>
     </div>
@@ -56,8 +56,8 @@
     </div>
     <div style="margin-top: 20px">
       <el-checkbox-group text-color="#f00" fill="#0ff" v-model="checkboxGroup5" size="small">
-        <el-checkbox label="改变颜色1" border></el-checkbox>
-        <el-checkbox label="改变颜色2" border disabled></el-checkbox>
+        <el-checkbox label="备选项1" border></el-checkbox>
+        <el-checkbox label="备选项2" border disabled></el-checkbox>
       </el-checkbox-group>
     </div>
     <div style="margin-top: 20px">
@@ -102,7 +102,7 @@ export default {
       checked4: false,
       checked5: false,
       checked6: true,
-      checkboxGroup5: ['改变颜色2'],
+      checkboxGroup5: ['备选项2'],
       checkboxGroup6: ['备选项1']
     }
   },
