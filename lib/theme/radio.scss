@@ -25,8 +25,10 @@ $prefix: x-radio;
     border: $--border-base;
     background-color: #fff;
   }
-  &:not(.is-disabled) &_radio:hover {
-    border-color: $--color-primary;
+  &:not(.is-disabled) {
+    .#{$prefix}_radio:hover {
+      border-color: $--color-primary;
+    }
   }
   &_dot {
     width: 4px;

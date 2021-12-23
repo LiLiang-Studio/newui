@@ -1,5 +1,5 @@
 <template>
-  <label :class="classes" @click="onClick">
+  <label tabindex="0" :class="classes" @click="onClick">
     <span :class="`${cls}_radio`">
       <transition :name="cls">
         <span v-if="isChecked" :class="`${cls}_dot`"></span>
@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { computed, inject } from 'vue'
+import { computed } from 'vue'
 import { B, NSB, oneOf, sizes } from '../../types'
 import helper from './helper'
 
@@ -28,7 +28,7 @@ const props = defineProps({
 
 const emit = defineEmits(['change', 'update:modelValue'])
 
-const { xRadioGroup, groupUtils, boxSize, isDisabled } = helper(props)
+const { xRadioGroup, groupUtil, boxSize, isDisabled } = helper(props)
 
 const cls = 'x-radio'
 
@@ -48,8 +48,8 @@ const classes = computed(() => {
 
 function onClick () {
   const { label } = props
-  if (groupUtils) {
-    groupUtils.updateModel(label)
+  if (groupUtil) {
+    groupUtil.updateModel(label)
   } else {
     emit('update:modelValue', label)
     emit('change', label)
