@@ -30,17 +30,17 @@
       <el-checkbox-group v-model="checkboxGroup1">
         <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox-button>
       </el-checkbox-group>
-    </div><br><br>
+    </div>
     <div style="margin-top: 20px">
       <el-checkbox-group v-model="checkboxGroup2" size="medium">
         <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox-button>
       </el-checkbox-group>
-    </div><br><br>
+    </div>
     <div style="margin-top: 20px">
       <el-checkbox-group v-model="checkboxGroup3" size="small">
         <el-checkbox-button v-for="city in cities" :label="city" :disabled="city === '北京'" :key="city">{{city}}</el-checkbox-button>
       </el-checkbox-group>
-    </div><br><br>
+    </div>
     <div style="margin-top: 20px">
       <el-checkbox-group v-model="checkboxGroup4" size="mini" disabled>
         <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox-button>
@@ -49,17 +49,29 @@
     <div>
       <el-checkbox v-model="checked3" label="备选项1" border></el-checkbox>
       <el-checkbox v-model="checked4" label="备选项2" border></el-checkbox>
-    </div><br><br>
+    </div>
     <div style="margin-top: 20px">
       <el-checkbox v-model="checked5" label="备选项1" border size="medium"></el-checkbox>
       <el-checkbox v-model="checked6" label="备选项2" border size="medium"></el-checkbox>
-    </div><br><br>
+    </div>
+    <div style="margin-top: 20px">
+      <el-checkbox-group text-color="#f00" fill="#0ff" v-model="checkboxGroup5" size="small">
+        <el-checkbox label="改变颜色1" border></el-checkbox>
+        <el-checkbox label="改变颜色2" border disabled></el-checkbox>
+      </el-checkbox-group>
+    </div>
     <div style="margin-top: 20px">
       <el-checkbox-group v-model="checkboxGroup5" size="small">
         <el-checkbox label="备选项1" border></el-checkbox>
         <el-checkbox label="备选项2" border disabled></el-checkbox>
       </el-checkbox-group>
-    </div><br><br>
+    </div>
+    <div style="margin-top: 20px">
+      <el-checkbox-group v-model="checkboxGroup6" size="mini" disabled>
+        <el-checkbox label="备选项1" border></el-checkbox>
+        <el-checkbox label="备选项2" border></el-checkbox>
+      </el-checkbox-group>
+    </div>
     <div style="margin-top: 20px">
       <el-checkbox-group v-model="checkboxGroup6" size="mini" disabled>
         <el-checkbox label="备选项1" border></el-checkbox>
@@ -90,8 +102,8 @@ export default {
       checked4: false,
       checked5: false,
       checked6: true,
-      checkboxGroup5: [],
-      checkboxGroup6: []
+      checkboxGroup5: ['改变颜色2'],
+      checkboxGroup6: ['备选项1']
     }
   },
   methods: {

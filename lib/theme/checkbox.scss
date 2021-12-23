@@ -9,6 +9,7 @@ $prefix: x-checkbox;
   vertical-align: middle;
   line-height: 1;
   font-size: 14px;
+  color: $--color-text-regular;
   &:not(:last-of-type) {
     margin-right: 30px;
   }
@@ -17,11 +18,11 @@ $prefix: x-checkbox;
     border-radius: 4px;
     padding: 0 20px 0 10px;
     border: $--border-base;
-    &.is-disabled {
-      border-color: $--border-color-lighter;
-    }
     &.is-checked {
       border-color: $--color-primary;
+    }
+    &.is-disabled {
+      border-color: $--border-color-lighter;
     }
   }
   &_medium.is-border {
@@ -71,7 +72,9 @@ $prefix: x-checkbox;
   }
   &_label {
     margin-left: 10px;
-    color: $--color-text-regular;
+  }
+  &.is-checked {
+    color: $--color-primary;
   }
   &.is-disabled {
     cursor: not-allowed;
