@@ -1,0 +1,56 @@
+@import './common/var.scss';
+
+.x-message {
+  padding: 6px 12px;
+  font-size: 13px;
+  text-align: center;
+  width: 100%;
+  transition: all .3s;
+  &-wrapper {
+    position: fixed;
+    top: 14px;
+    right: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  &_inner {
+    position: relative;
+    min-width: 280px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    text-align: left;
+    pointer-events: all;
+    padding: 10px;
+    color: $--color-info;
+    border: 1px solid $--color-primary-light-7;
+    background-color: $--color-primary-light-9;
+  }
+  &_icon {
+    margin-right: 10px;
+  }
+  &_content {
+    flex: 1;
+  }
+  &_close {
+    cursor: pointer;
+    &:hover {
+      color: $--color-text-regular;
+    }
+  }
+  &_success {
+    color: $--color-success;
+    border-color: mix(#fff, $--color-success, 70%);
+    background-color: mix(#fff, $--color-success, 90%);
+  }
+  &_warning {
+    color: $--color-warning;
+    border-color: mix(#fff, $--color-warning, 70%);
+    background-color: mix(#fff, $--color-warning, 90%);
+  }
+  &_error {
+    color: $--color-danger;
+    border-color: mix(#fff, $--color-danger, 70%);
+    background-color: mix(#fff, $--color-danger, 90%);
+  }
+}
