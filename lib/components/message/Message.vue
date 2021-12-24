@@ -18,7 +18,6 @@ const props = defineProps({
     validator: v => oneOf(['success', 'warning', 'info', 'error'], v)
   },
   iconClass: S,
-  dangerouslyUseHTMLString: B,
   customClass: S,
   duration: { type: N, default: 3000 },
   showClose: B,
