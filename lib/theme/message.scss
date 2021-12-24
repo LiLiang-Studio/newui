@@ -6,12 +6,21 @@
   text-align: center;
   width: 100%;
   transition: all .3s;
+  &-leave-active {
+    position: absolute;
+  }
+  &-enter-from, &-leave-to {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
   &-wrapper {
     position: fixed;
     top: 14px;
     right: 0;
     left: 0;
     pointer-events: none;
+    transform: translateX(0);
+    transition: top .3s;
   }
   &_inner {
     position: relative;
@@ -25,15 +34,25 @@
     color: $--color-info;
     border: 1px solid $--color-primary-light-7;
     background-color: $--color-primary-light-9;
+    &.has-close {
+      padding-right: 24px;
+    }
+    &.is-center {
+      justify-content: center;
+    }
   }
   &_icon {
+    font-size: 14px;
     margin-right: 10px;
   }
-  &_content {
-    flex: 1;
-  }
   &_close {
+    font-size: 14px;
     cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    color: $--color-info;
     &:hover {
       color: $--color-text-regular;
     }

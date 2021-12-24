@@ -18,6 +18,7 @@
     </div><br>
     <div>
       <el-button :plain="true" @click="openCenter">文字居中</el-button>
+      <el-button :plain="true" @click="openIconClass">自定义图标</el-button>
     </div><br>
     <div>
       <el-button :plain="true" @click="openHTML">使用 HTML 片段</el-button>
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+import { h } from 'vue'
 export default {
   methods: {
     open () {
@@ -34,7 +36,6 @@ export default {
     },
 
     openVn () {
-      const h = this.$createElement
       this.$message({
         message: h('p', null, [
           h('span', null, '内容可以是 '),
@@ -97,6 +98,12 @@ export default {
       this.$message({
         message: '居中的文字',
         center: true
+      })
+    },
+    openIconClass () {
+      this.$message({
+        message: '自定义图标',
+        iconClass: 'x-icon-delete'
       })
     },
     openHTML () {

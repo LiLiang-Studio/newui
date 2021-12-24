@@ -1,24 +1,18 @@
 <template>
-  <div :class="[cls, customClass]">
+  <div v-if="visible" :class="[cls, customClass]">
     <div :class="innerClasses">
       <i :class="[iconClass || `x-icon-${type}`, `${cls}_icon`]"></i>
-      <div :class="`${cls}_content`">
-        <template v-if="isStr(message)">
-          <div v-if="dangerouslyUseHTMLString" v-html="message"></div>
-          <div v-else>{{ message }}</div>
-        </template>
-      </div>
+      <slot />
       <i v-if="showClose" :class="['x-icon-close', `${cls}_close`]" @click="onClose"></i>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { B, F, N, oneOf, S, isStr } from '../../types'
+import { computed, onMounted, ref } from 'vue'
+import { B, N, oneOf, S } from '../../types'
 
 const props = defineProps({
-  message: {},
   type: {
     default: 'info',
     validator: v => oneOf(['success', 'warning', 'info', 'error'], v)
@@ -26,16 +20,9 @@ const props = defineProps({
   iconClass: S,
   dangerouslyUseHTMLString: B,
   customClass: S,
-  duration: {
-    type: N,
-    default: 3000
-  },
+  duration: { type: N, default: 3000 },
   showClose: B,
-  center: B,
-  offset: {
-    type: N,
-    default: 20
-  }
+  center: B
 })
 
 const emit = defineEmits(['close'])
@@ -56,4 +43,11 @@ const innerClasses = computed(() => {
 function onClose () {
   emit('close')
 }
+
+const visible = ref(false)
+
+onMounted(() => {
+  visible.value = true
+  props.duration && setTimeout(onClose, props.duration)
+})
 </script>
