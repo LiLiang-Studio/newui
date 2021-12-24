@@ -1,6 +1,8 @@
 @import './common/var.scss';
 
-.x-descriptions {
+$cls: x-descriptions;
+
+.#{$cls} {
   font-size: 14px;
   color: $--color-text-primary;
   &_header {
@@ -16,9 +18,36 @@
   &_table {
     border-collapse: collapse;
     width: 100%;
+    color: $--color-text-regular;
+    .#{$cls}_label, .#{$cls}_content {
+      padding: 12px 10px;
+      font-weight: normal;
+    }
+    &.is-medium {
+      .#{$cls}_label, .#{$cls}_content {
+        padding: 10px;
+      }
+    }
+    &.is-small, &.is-mini {
+      font-size: 12px;
+    }
+    &.is-small {
+      .#{$cls}_label, .#{$cls}_content {
+        padding: 8px 10px;
+      }
+    }
+    &.is-mini {
+      .#{$cls}_label, .#{$cls}_content {
+        padding: 6px 10px;
+      }
+    }
     &.has-border {
-      &, td, th {
-        border: $--border-base;
+      &, .#{$cls}_label, .#{$cls}_content {
+        border: 1px solid $--border-color-lighter;
+      }
+      .#{$cls}_label {
+        color: $--color-text-secondary;
+        background-color: mix($--color-text-secondary, #fff, 5%);
       }
     }
   }

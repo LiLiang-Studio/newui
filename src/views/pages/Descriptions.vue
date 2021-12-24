@@ -32,35 +32,35 @@
       </template>
       <el-descriptions-item>
         <template #label>
-          <i class="el-icon-user"></i>
+          <i class="x-icon-user"></i>
           用户名
         </template>
         kooriookami
       </el-descriptions-item>
       <el-descriptions-item>
         <template #label>
-          <i class="el-icon-mobile-phone"></i>
+          <i class="x-icon-mobile-phone"></i>
           手机号
         </template>
         18100000000
       </el-descriptions-item>
       <el-descriptions-item>
         <template #label>
-          <i class="el-icon-location-outline"></i>
+          <i class="x-icon-location-outline"></i>
           居住地
         </template>
         苏州市
       </el-descriptions-item>
       <el-descriptions-item>
         <template #label>
-          <i class="el-icon-tickets"></i>
+          <i class="x-icon-tickets"></i>
           备注
         </template>
         <el-tag size="small">学校</el-tag>
       </el-descriptions-item>
       <el-descriptions-item>
         <template #label>
-          <i class="el-icon-office-building"></i>
+          <i class="x-icon-office-building"></i>
           联系地址
         </template>
         江苏省苏州市吴中区吴中大道 1188 号
@@ -161,8 +161,10 @@ export default {
 .my-label {
   background: #e1f3d8;
 }
-
 .my-content {
   background: #fde2e2;
+}
+.margin-top {
+  margin-top: 20px;
 }
 </style>

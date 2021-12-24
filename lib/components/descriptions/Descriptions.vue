@@ -9,7 +9,7 @@
       </div>
     </div>
     <div :class="`${cls}_body`">
-      <table :class="[`${cls}_table`, { 'has-border': border }]">
+      <table :class="[`${cls}_table`, size && `is-${size}`, { 'has-border': border }]">
         <slot />
       </table>
     </div>

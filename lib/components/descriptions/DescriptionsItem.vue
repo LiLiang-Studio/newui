@@ -1,8 +1,9 @@
 <template>
-  <td>
+  <th :class="`${cls}_label`">
     <slot name="label">{{ label }}</slot>
-  </td>
-  <td>
+    <template v-if="xDescriptions.colon">:</template>
+  </th>
+  <td :class="`${cls}_content`">
     <slot></slot>
   </td>
 </template>
@@ -21,4 +22,6 @@ const props = defineProps({
 })
 
 const xDescriptions = inject('xDescriptions', {})
+
+const cls = 'x-descriptions'
 </script>
