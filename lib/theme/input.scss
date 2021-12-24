@@ -1,0 +1,37 @@
+@import './common/var.scss';
+
+.x-input {
+  font-size: 14px;
+  color: $--color-text-regular;
+  &_inner {
+    display: inline-block;
+    width: 100%;
+    height: $--size-default;
+    border: $--border-base;
+    background-color: #fff;
+    border-radius: 4px;
+    font-size: inherit;
+    color: inherit;
+    outline: none;
+    padding: 0 15px;
+    transition: border-color .2s;
+    &::placeholder {
+      font-family: inherit;
+      color: $--color-text-placeholder;
+    }
+    &:not(:disabled) {
+      &:hover {
+        border-color: $--color-text-placeholder;
+      }
+      &:focus {
+        border-color: $--color-primary;
+      }
+    }
+    &:disabled {
+      cursor: not-allowed;
+      color: $--color-text-placeholder;
+      border-color: $--border-color-light;
+      background-color: $--background-color-base;
+    }
+  }
+}
