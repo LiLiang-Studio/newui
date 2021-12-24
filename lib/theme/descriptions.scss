@@ -1,0 +1,25 @@
+@import './common/var.scss';
+
+.x-descriptions {
+  font-size: 14px;
+  color: $--color-text-primary;
+  &_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  &_title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  &_table {
+    border-collapse: collapse;
+    width: 100%;
+    &.has-border {
+      &, td, th {
+        border: $--border-base;
+      }
+    }
+  }
+}
