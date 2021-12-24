@@ -16,6 +16,7 @@ $cls: x-descriptions;
     font-weight: bold;
   }
   &_table {
+    text-align: left;
     border-collapse: collapse;
     width: 100%;
     color: $--color-text-regular;
@@ -42,7 +43,7 @@ $cls: x-descriptions;
       }
     }
     &.has-border {
-      &, .#{$cls}_label, .#{$cls}_content {
+      .#{$cls}_label, .#{$cls}_content {
         border: 1px solid $--border-color-lighter;
       }
       .#{$cls}_label {

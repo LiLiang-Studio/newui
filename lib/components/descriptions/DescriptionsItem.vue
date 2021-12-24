@@ -1,15 +1,15 @@
 <template>
-  <th :class="`${cls}_label`">
+  <th :class="labelClasses" :style="labelStyle">
     <slot name="label">{{ label }}</slot>
     <template v-if="xDescriptions.colon">:</template>
   </th>
-  <td :class="`${cls}_content`">
+  <td :class="contentClasses" :style="contentStyles" :colspan="span">
     <slot></slot>
   </td>
 </template>
 
 <script setup>
-import { inject } from 'vue'
+import { computed, inject } from 'vue'
 import { N, S } from '../../types'
 
 const props = defineProps({
@@ -24,4 +24,8 @@ const props = defineProps({
 const xDescriptions = inject('xDescriptions', {})
 
 const cls = 'x-descriptions'
+const labelClasses = computed(() => [`${cls}_label`, xDescriptions.labelClassName, props.labelClassName])
+const labelStyles = computed(() => ({ ...(xDescriptions.labelStyle || {}), ...(props.labelStyle || {}) }))
+const contentClasses = computed(() => [`${cls}_content`, xDescriptions.contentClassName, props.contentClassName])
+const contentStyles = computed(() => ({ ...(xDescriptions.contentStyle || {}), ...(props.contentStyle || {}) }))
 </script>
