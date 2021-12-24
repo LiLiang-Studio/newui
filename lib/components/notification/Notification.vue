@@ -24,10 +24,7 @@ const props = defineProps({
   },
   iconClass: S,
   customClass: S,
-  duration: {
-    type: N,
-    default: 4500
-  },
+  duration: { type: N, default: 4500 },
   showClose: BTrue
 })
 
@@ -35,7 +32,7 @@ const emit = defineEmits(['close'])
 
 const cls = 'x-notification'
 
-const icon = computed(() => props.iconClass || (props.type && `x-icon-${type}`))
+const icon = computed(() => props.iconClass || (props.type && `x-icon-${props.type}`))
 
 function onClose () {
   emit('close')
