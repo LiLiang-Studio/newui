@@ -15,15 +15,18 @@ $cls: x-descriptions;
     font-size: 16px;
     font-weight: bold;
   }
+  &_label, &_content {
+    padding: 12px 10px;
+    font-weight: normal;
+  }
+  &_label {
+    text-align: right;
+  }
   &_table {
     text-align: left;
     border-collapse: collapse;
     width: 100%;
     color: $--color-text-regular;
-    .#{$cls}_label, .#{$cls}_content {
-      padding: 12px 10px;
-      font-weight: normal;
-    }
     &.is-medium {
       .#{$cls}_label, .#{$cls}_content {
         padding: 10px;

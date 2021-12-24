@@ -27,17 +27,39 @@ export default {
   methods: {
     renderTable (/** @type {import('vue').VNode[]} */ items) {
       const len = items.length
-      const rows = Math.ceil(len / this.column)
-      return new Array(rows).fill(0).map((_, i) => {
-        const start = this.column * i
-        const end = start + this.column
-        if (end > len) {
-          const lastItem = items[len - 1]
-          items.pop()
-          items.push({ ...lastItem, props: { ...(lastItem.props || {}), span: (end - len) * 2 + 1 } })
+      const nodeList = [[]]
+      const getSpan = node => (node.props || {}).span || 1
+      for (let i = 0; i < len; i++) {
+        const node = items[i]
+        const span = getSpan(node)
+        const nodeListLen = nodeList.length
+        const row = nodeListLen ? nodeList[nodeListLen - 1] : []
+        const colCount = row.reduce((t, _) => t + getSpan(_), 0)
+        if (span > this.column - colCount) {
+          nodeList.push([node])
+          const diff = this.column - colCount
+          if (diff) {
+            const lastNode = row[row.length - 1]
+            row.pop()
+            row.push({ ...lastNode, props: { ...(lastNode.props || {}), span: getSpan(lastNode) + diff * 2 } })
+          }
+        } else {
+          row.push(node)
         }
-        return h('tr', {}, items.slice(start, end))
-      })
+      }
+      return nodeList.map(_ => h('tr', {}, _))
+
+      // const rows = Math.ceil(len / this.column)
+      // return new Array(rows).fill(0).map((_, i) => {
+      //   const start = this.column * i
+      //   const end = start + this.column
+      //   if (end > len) {
+      //     const lastItem = items[len - 1]
+      //     items.pop()
+      //     items.push({ ...lastItem, props: { ...(lastItem.props || {}), span: (end - len) * 2 + 1 } })
+      //   }
+      //   return h('tr', {}, items.slice(start, end))
+      // })
     }
   },
   render () {
