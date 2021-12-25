@@ -7,6 +7,9 @@
   &_medium {
     height: $--size-medium;
   }
+  &_small, &_mini {
+    font-size: 12px;
+  }
   &_small {
     height: $--size-small;
   }
@@ -62,6 +65,7 @@
     color: inherit;
     font-size: inherit;
     padding: 0 15px;
+    background-color: transparent;
     &::placeholder {
       font-family: inherit;
       color: $--color-text-placeholder;
@@ -75,6 +79,8 @@
     &.is-textarea {
       padding: 5px 15px;
       line-height: 1.5;
+      resize: vertical;
+      min-height: 30px;
     }
   }
   &_prefix, &_suffix {
