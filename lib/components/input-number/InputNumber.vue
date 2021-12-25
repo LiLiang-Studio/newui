@@ -68,11 +68,10 @@ watch(
 function emitValue (v) {
   let value = Math.max(Math.min(v, props.max), props.min)
   if (props.stepStrictly) {
-    const mod = (value - initValue) % props.step
+    const mod = Math.abs((value - initValue) % props.step)
     if (mod) {
       const small = value - mod
-      const big = value + props.step - mod
-      console.log(small, big)
+      const big = value > 0 ? value + props.step - mod : value + mod
       value = big > props.max ? small : big
     }
   }
@@ -97,7 +96,7 @@ function onInput (v) {
 }
 
 function onBlur (e) {
-  emitValue(props.modelValue)
+  !isNaN(props.modelValue) && !isEmpty(props.modelValue) && emitValue(props.modelValue)
   emit('blur', e)
 }
 </script>

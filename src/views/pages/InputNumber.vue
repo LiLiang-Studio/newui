@@ -6,7 +6,7 @@
     <br><br>
   <el-input-number v-model="num" :step="2"></el-input-number>
     <br><br>
-  <el-input-number v-model="num" :step="2" step-strictly></el-input-number>
+  <el-input-number v-model="num6" :step="2" step-strictly></el-input-number>
     <br><br>
   <el-input-number v-model="num1" :precision="2" :step="0.1" :max="10"></el-input-number>
     <br><br>
@@ -28,7 +28,8 @@
         num2: 1,
         num3: 1,
         num4: 1,
-        num5: 1
+        num5: 1,
+        num6: 2
       };
     },
     methods: {
