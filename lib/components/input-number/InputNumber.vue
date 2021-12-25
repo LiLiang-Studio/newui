@@ -10,17 +10,23 @@
         <i v-else class="x-icon-plus"></i>
       </span>
     </template>
-    <x-input :model-value="modelValue" :placeholder="placeholder" :disabled="isDisabled" :size="boxSize" @update:model-value="onInput" />
+    <x-input
+      :model-value="modelValue"
+      :placeholder="placeholder"
+      :disabled="isDisabled"
+      :size="boxSize"
+      @blur="onBlur"
+      @update:model-value="onInput" />
   </div>
 </template>
 
 <script setup>
-import { computed, inject } from 'vue'
-import { B, BTrue, N, N0, oneOf, S, sizes } from '../../types'
+import { computed, inject, watch } from 'vue'
+import { B, BTrue, isEmpty, N, oneOf, S, sizes } from '../../types'
 import { Input as XInput } from '../input'
 
 const props = defineProps({
-  modelValue: N0,
+  modelValue: { type: [N, S], default: 0 },
   min: { type: N, default: -Infinity },
   max: { type: N, default: Infinity },
   step: { type: N, default: 1 },
@@ -35,7 +41,7 @@ const props = defineProps({
   placeholder: S
 })
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'blur'])
 
 const xForm = inject('xForm', {})
 
@@ -47,17 +53,51 @@ const isPosRight = computed(() => props.controlsPosition === 'right')
 const isDisabledMinus = computed(() => props.modelValue <= props.min)
 const isDisabledPlus = computed(() => props.modelValue >= props.max)
 
+let initValue
+
+watch(
+  () => props.modelValue,
+  v => {
+    if (isEmpty(initValue) && !isEmpty(v)) {
+      initValue = v
+    }
+  },
+  { immediate: true }
+)
+
+function emitValue (v) {
+  let value = Math.max(Math.min(v, props.max), props.min)
+  if (props.stepStrictly) {
+    const mod = (value - initValue) % props.step
+    if (mod) {
+      const small = value - mod
+      const big = value + props.step - mod
+      console.log(small, big)
+      value = big > props.max ? small : big
+    }
+  }
+  if (props.precision) {
+    value = +value.toFixed(props.precision)
+  }
+  emit('update:modelValue', value)
+}
+
 function onMinus () {
   if (isDisabled.value || isDisabledMinus.value) return
-  emit('update:modelValue', props.modelValue ? Math.max(props.modelValue - props.step, props.min) : props.min)
+  emitValue(props.modelValue - props.step)
 }
 
 function onPlus () {
   if (isDisabled.value || isDisabledPlus.value) return
-  emit('update:modelValue', props.modelValue ? Math.min(+props.modelValue + props.step, props.max) : props.min)
+  emitValue(props.modelValue + props.step)
 }
 
 function onInput (v) {
-  emit('update:modelValue', +v)
+  !isNaN(v) && emit('update:modelValue', isEmpty(v) ? '' : +v)
+}
+
+function onBlur (e) {
+  emitValue(props.modelValue)
+  emit('blur', e)
 }
 </script>
