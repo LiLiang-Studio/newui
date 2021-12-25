@@ -3,6 +3,9 @@
 .x-input {
   font-size: 14px;
   color: $--color-text-regular;
+  &_box {
+    position: relative;
+  }
   &_inner {
     display: inline-block;
     width: 100%;
@@ -33,5 +36,34 @@
       border-color: $--border-color-light;
       background-color: $--background-color-base;
     }
+    &.has-prefix {
+      padding-left: 30px;
+    }
+    &.has-suffix {
+      padding-right: 30px;
+    }
+  }
+  &_prefix, &_suffix {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $--color-text-placeholder;
+  }
+  &_prefix {
+    left: 0;
+  }
+  &_suffix {
+    right: 0;
+  }
+  &_clear {
+    display: none;
+    cursor: pointer;
+  }
+  &_box:hover &_clear, &_inner:focus + &_suffix &_clear {
+    display: inline-block;
   }
 }

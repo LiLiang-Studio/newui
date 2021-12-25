@@ -150,8 +150,8 @@ export default {
 </script>
 
 <style>
-  .el-select .el-input {
-    width: 130px;
+  .x-input {
+    width: 200px;
   }
   .input-with-select .el-input-group__prepend {
     background-color: #fff;
