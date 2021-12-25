@@ -21,6 +21,7 @@
     flex: 1;
     display: flex;
     align-items: center;
+    position: relative;
     border: $--border-base;
     color: $--color-text-regular;
     background-color: #fff;
@@ -80,7 +81,7 @@
     height: 100%;
     color: $--color-text-placeholder;
     > * {
-      width: 30px;
+      padding: 0 8px;
       height: 100%;
       display: inline-flex;
       align-items: center;
@@ -90,6 +91,16 @@
   &_clear {
     cursor: pointer;
     visibility: hidden;
+  }
+  &_count {
+    font-size: 12px;
+  }
+  &.is-textarea &_count {
+    position: absolute;
+    right: 8px;
+    bottom: 0;
+    height: auto;
+    padding: 0;
   }
   &_box:hover &_clear, &_box.is-focus &_clear {
     visibility: visible;

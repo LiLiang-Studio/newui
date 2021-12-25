@@ -37,6 +37,7 @@
         <slot name="suffix">
           <i v-if="suffixIcon" :class="suffixIcon"></i>
         </slot>
+        <span v-if="showWordLimit" :class="`${cls}_count`">{{ wordLimit }}</span>
       </div>
     </div>
     <div v-if="$slots.append" :class="`${cls}_append`">
@@ -83,9 +84,16 @@ const isDisabled = computed(() => props.disabled || xForm.disabled)
 
 const boxSize = computed(() => props.size || xForm.size)
 
+const wordLimit = computed(() => {
+  const { maxlength } = attrs
+  console.log(maxlength)
+  const len = (props.modelValue || '').length
+  return maxlength ? `${len}/${maxlength}` : len
+})
+
 const hasPrefix = computed(() => props.prefixIcon || slots.prefix)
 
-const hasSuffix = computed(() => (props.modelValue && props.clearable) || props.showPassword || props.suffixIcon || slots.suffix)
+const hasSuffix = computed(() => (props.modelValue && props.clearable) || props.showPassword || props.showWordLimit || props.suffixIcon || slots.suffix)
 
 const boxClasses = computed(() => {
   return [`${cls}_box`, { 'is-focus': isFocus.value, 'is-disabled': isDisabled.value, 'has-append': slots.append }]
