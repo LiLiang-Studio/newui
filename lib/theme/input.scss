@@ -2,68 +2,127 @@
 
 .x-input {
   font-size: 14px;
-  color: $--color-text-regular;
-  &_box {
-    position: relative;
+  display: flex;
+  height: $--size-default;
+  &_medium {
+    height: $--size-medium;
   }
-  &_inner {
-    display: inline-block;
-    width: 100%;
-    height: $--size-default;
+  &_small {
+    height: $--size-small;
+  }
+  &_mini {
+    height: $--size-mini;
+  }
+  &.is-textarea {
+    height: auto;
+  }
+  &_box {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
     border: $--border-base;
+    color: $--color-text-regular;
     background-color: #fff;
     border-radius: 4px;
-    font-size: inherit;
-    color: inherit;
-    outline: none;
-    padding: 0 15px;
+    overflow: hidden;
     transition: border-color .2s;
+    &:not(.is-disabled) {
+      &:hover {
+        border-color: $--color-text-placeholder;
+      }
+      &.is-focus {
+        border-color: $--color-primary;
+      }
+    }
+    &.is-disabled {
+      color: $--color-text-placeholder;
+      border-color: $--border-color-light;
+      background-color: $--background-color-base;
+      &, * {
+        cursor: not-allowed;
+      }
+    }
+    &.has-append {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  &_inner {
+    flex: 1;
+    height: 100%;
+  }
+  &_input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    padding: 0 15px;
     &::placeholder {
       font-family: inherit;
       color: $--color-text-placeholder;
     }
-    &:not(:disabled) {
-      &:hover {
-        border-color: $--color-text-placeholder;
-      }
-      &:focus {
-        border-color: $--color-primary;
-      }
-    }
-    &:disabled {
-      cursor: not-allowed;
-      color: $--color-text-placeholder;
-      border-color: $--border-color-light;
-      background-color: $--background-color-base;
-    }
     &.has-prefix {
-      padding-left: 30px;
+      padding-left: 0;
     }
     &.has-suffix {
-      padding-right: 30px;
+      padding-right: 0;
+    }
+    &.is-textarea {
+      padding: 5px 15px;
+      line-height: 1.5;
     }
   }
   &_prefix, &_suffix {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 30px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    height: 100%;
     color: $--color-text-placeholder;
-  }
-  &_prefix {
-    left: 0;
-  }
-  &_suffix {
-    right: 0;
+    > * {
+      width: 30px;
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
   &_clear {
-    display: none;
     cursor: pointer;
+    visibility: hidden;
   }
-  &_box:hover &_clear, &_inner:focus + &_suffix &_clear {
-    display: inline-block;
+  &_box:hover &_clear, &_box.is-focus &_clear {
+    visibility: visible;
+  }
+  &_prepend, &_append {
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    color: $--color-text-secondary;
+    background-color: $--background-color-base;
+    border: $--border-base;
+  }
+  &_prepend {
+    border-right: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  &_append {
+    border-left: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    .x-button {
+      &, &:hover, &:focus {
+        border: none;
+        color: inherit;
+        background-color: transparent;
+        margin: 0 -20px;
+      }
+    }
+  }
+  &_prepend + &_box {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
