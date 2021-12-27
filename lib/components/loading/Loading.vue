@@ -1,5 +1,5 @@
 <template>
-  <div :class="[cls, customClass, { 'is-fullscreen': fullscreen }]" :style="{ background, zIndex }">
+  <div :class="[cls, customClass]" :style="{ background }">
     <div :class="`${cls}_spinner`">
       <i v-if="spinner" :class="spinner"></i>
       <svg v-else viewBox="25 25 50 50" :class="`${cls}_circular`">
