@@ -1,5 +1,5 @@
 <template>
-  <div :class="[cls, customClass]" :style="{}">
+  <div :class="[cls, customClass, { 'is-fullscreen': fullscreen }]" :style="{ background, zIndex }">
     <div :class="`${cls}_spinner`">
       <i v-if="spinner" :class="spinner"></i>
       <svg v-else viewBox="25 25 50 50" :class="`${cls}_circular`">
@@ -11,13 +11,11 @@
 </template>
 
 <script setup>
-import { B, BTrue, O, S } from '../../types'
+import { BTrue, S } from '../../types'
+import { getMaxZIndex } from '../../utils'
 
-const props = defineProps({
-  target: [O, S],
-  body: B,
+defineProps({
   fullscreen: BTrue,
-  lock: B,
   text: S,
   spinner: S,
   background: S,
@@ -25,4 +23,5 @@ const props = defineProps({
 })
 
 const cls = 'x-loading'
+const zIndex = getMaxZIndex()
 </script>

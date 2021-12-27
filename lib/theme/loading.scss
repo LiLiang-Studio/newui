@@ -8,6 +8,7 @@ $cls: x-loading;
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 5;
   font-size: 14px;
   transition: opacity .3s;
   color: $--color-primary;
@@ -16,6 +17,12 @@ $cls: x-loading;
   align-items: center;
   justify-content: center;
   text-align: center;
+  &.is-fullscreen {
+    position: fixed;
+  }
+  &.v-enter-from, &.v-leave-to {
+    opacity: 0;
+  }
   &_text {
     margin: 3px 0;
   }

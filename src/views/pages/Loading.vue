@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div v-loading class="area">
       这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容
     </div>
@@ -7,7 +7,7 @@
       class="area"
       v-loading="loading"
       element-loading-text="拼命加载中"
-      element-loading-spinner="el-icon-loading"
+      element-loading-spinner="x-icon-loading"
       element-loading-background="rgba(0, 0, 0, 0.8)"
     >这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容这是一些内容</div>
     <el-button
@@ -43,7 +43,7 @@ export default {
       const loading = this.$loading({
         lock: true,
         text: 'Loading',
-        spinner: 'el-icon-loading',
+        spinner: 'x-icon-loading',
         background: 'rgba(0, 0, 0, 0.7)'
       });
       setTimeout(() => {
@@ -64,6 +64,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  overflow: hidden;
 }
 .x-button {
   margin-right: 10px;
