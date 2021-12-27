@@ -1,0 +1,1 @@
+import{_ as o}from"./index.a87d6fc8.js";import{I as r,o as a,d as n,y as t}from"./vendor.19397019.js";const c={};function s(_,d){const e=r("el-page-header");return a(),n("div",null,[t(e,{content:"\u8BE6\u60C5\u9875\u9762"})])}var f=o(c,[["render",s]]);export{f as default};
