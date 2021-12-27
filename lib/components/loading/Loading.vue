@@ -11,11 +11,9 @@
 </template>
 
 <script setup>
-import { BTrue, S } from '../../types'
-import { getMaxZIndex } from '../../utils'
+import { S } from '../../types'
 
 defineProps({
-  fullscreen: BTrue,
   text: S,
   spinner: S,
   background: S,
@@ -23,5 +21,4 @@ defineProps({
 })
 
 const cls = 'x-loading'
-const zIndex = getMaxZIndex()
 </script>
