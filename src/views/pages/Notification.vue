@@ -59,13 +59,6 @@
     <div>
       <el-button
         plain
-        @click="open11">
-        偏移的消息
-      </el-button>
-    </div><br>
-    <div>
-      <el-button
-        plain
         @click="open12">
         使用 HTML 片段
       </el-button>
@@ -76,7 +69,14 @@
         @click="open13">
         隐藏关闭按钮
       </el-button>
-    </div>
+    </div><br>
+    <div>
+      <el-button
+        plain
+        @click="closeAll">
+        关闭所有
+      </el-button>
+    </div><br>
   </div>
 </template>
 
@@ -177,6 +177,9 @@ export default {
         message: '这是一条没有关闭按钮的消息',
         showClose: false
       })
+    },
+    closeAll () {
+      this.$notify.closeAll()
     }
   }
 }
